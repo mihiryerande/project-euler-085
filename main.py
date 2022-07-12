@@ -10,15 +10,23 @@
 #       find the area of the grid with the nearest solution.
 
 from math import ceil, comb, floor, sqrt
+from typing import Tuple
 
 
-def rectangle_count(w, h):
+def rectangle_count(w: int, h: int) -> int:
     """
     Given the dimensions `w` x `h` of a rectangular grid,
       return the number of rectangles contained by the grid.
-    :param w:
-    :param h:
-    :return:
+
+    Args:
+        w (int): Natural number
+        h (int): Natural number
+
+    Returns:
+        (int): Number of rectangles contained by the grid
+
+    Raises:
+        AssertError: if incorrect args are given
     """
     assert type(w) == int and w > 0
     assert type(h) == int and h > 0
@@ -28,7 +36,7 @@ def rectangle_count(w, h):
     return comb(w+1, 2) * comb(h+1, 2)
 
 
-def main(n):
+def main(n: int) -> Tuple[int, int]:
     """
     Returns the dimensions of the rectangular grid containing `n` rectangles,
       or the dimensions of the closest such grid, if an exact grid doesn't exist.
